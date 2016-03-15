@@ -14,13 +14,13 @@ void setup()
 
 void loop()
 {
-    motor.speed(0, 100);         // set motor0 to speed 100
+    motor.speed(0, 100);            // set motor0 to speed 100
     delay(1000);
-    motor.brake(0);             // brake
+    motor.brake(0);                 // brake
     delay(1000);
-    motor.speed(0, -100);        // set motor0 to speed -100
+    motor.speed(0, -100);           // set motor0 to speed -100
     delay(1000);
-    motor.stop(0);              // stop
+    motor.stop(0);                  // stop
     delay(1000);
 }
 // END FILE
