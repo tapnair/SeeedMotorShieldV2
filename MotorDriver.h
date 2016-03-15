@@ -38,7 +38,7 @@ public:
 
     // motor_num: 0, 1
     // speed: 0~100
-    void move(int motor_id, int speed);
+    void speed(int motor_id, int _speed);
     void stop(unsigned char motor_id);
     void brake(unsigned char motor_id);
 

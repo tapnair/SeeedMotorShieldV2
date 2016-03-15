@@ -38,7 +38,7 @@ void MotorDriver::begin()
 
 void MotorDriver::stop(unsigned char motor_id)
 {
-    move(motor_id, 0);
+    speed(motor_id, 0);
 }
 
 void MotorDriver::brake(unsigned char motor_id)
@@ -65,63 +65,63 @@ void MotorDriver::brake(unsigned char motor_id)
     }
 }
 
-void MotorDriver::move(int motor_id, int speed)
+void MotorDriver::speed(int motor_id, int _speed)
 {
     if(motor_id<0 || motor_id>1)return;
     
-    speed = speed<-100 ? -100 : speed;
-    speed = speed>100 ? 100 : speed;
+    _speed = _speed<-100 ? -100 : _speed;
+    _speed = _speed>100 ? 100 : _speed;
     
-    if(motor_id == 0 && speed0 == speed)return;
-    else speed0 = speed;
+    if(motor_id == 0 && speed0 == _speed)return;
+    else speed0 = _speed;
     
-    if(motor_id == 1 && speed1 == speed)return;
-    else speed1 = speed;
+    if(motor_id == 1 && speed1 == _speed)return;
+    else speed1 = _speed;
     
     switch(motor_id)
     {
         case 0:
         
-        if(speed>0)
+        if(_speed>0)
         {
             digitalWrite(MOTORSHIELD_IN1, HIGH);
             digitalWrite(MOTORSHIELD_IN2, LOW);
-            PWM.setPwm(9, speed, 10000);
+            PWM.setPwm(9, _speed, 10000);
         }
-        else if(speed<0)
+        else if(_speed<0)
         {
             digitalWrite(MOTORSHIELD_IN1, LOW);
             digitalWrite(MOTORSHIELD_IN2, HIGH);
-            PWM.setPwm(9, 0-speed, 10000);
+            PWM.setPwm(9, 0-_speed, 10000);
         }
         else
         {
             digitalWrite(MOTORSHIELD_IN1, LOW);
             digitalWrite(MOTORSHIELD_IN2, LOW);
-            PWM.setPwm(9, speed, 10000);
+            PWM.setPwm(9, _speed, 10000);
         }
         
         break;
         
         case 1:
         
-        if(speed>0)
+        if(_speed>0)
         {
             digitalWrite(MOTORSHIELD_IN3, HIGH);
             digitalWrite(MOTORSHIELD_IN4, LOW);
-            PWM.setPwm(9, speed, 10000);
+            PWM.setPwm(9, _speed, 10000);
         }
-        else if(speed<0)
+        else if(_speed<0)
         {
             digitalWrite(MOTORSHIELD_IN3, LOW);
             digitalWrite(MOTORSHIELD_IN4, HIGH);
-            PWM.setPwm(9, 0-speed, 10000);
+            PWM.setPwm(9, 0-_speed, 10000);
         }
         else
         {
             digitalWrite(MOTORSHIELD_IN3, LOW);
             digitalWrite(MOTORSHIELD_IN4, LOW);
-            PWM.setPwm(9, speed, 10000);
+            PWM.setPwm(9, _speed, 10000);
         }
         break;
         
