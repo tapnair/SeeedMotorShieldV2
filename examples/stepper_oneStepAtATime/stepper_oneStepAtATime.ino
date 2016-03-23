@@ -31,7 +31,7 @@ Stepper myStepper(stepsPerRevolution, 8,11,12,13);
 
 int stepCount = 0;         // number of steps the motor has taken
 
-void setp(int steps)
+void step(int steps)
 {
     digitalWrite(9, HIGH);
     digitalWrite(10, HIGH);
@@ -51,7 +51,7 @@ void setup() {
 
 void loop() {
   // step one step:
-  setp(1);
+  step(1);
   Serial.print("steps:" );
   Serial.println(stepCount);
   stepCount++;

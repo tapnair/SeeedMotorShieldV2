@@ -16,7 +16,7 @@ Stepper stepper(STEPS, 8, 11, 12, 13);
 // the previous reading from the analog input
 int previous = 0;
 
-void setp(int steps)
+void step(int steps)
 {
     digitalWrite(9, HIGH);
     digitalWrite(10, HIGH);

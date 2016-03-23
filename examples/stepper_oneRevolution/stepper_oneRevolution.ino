@@ -26,7 +26,7 @@ const int stepsPerRevolution = 200;  // change this to fit the number of steps p
 // initialize the stepper library on pins 8 through 11:
 Stepper myStepper(stepsPerRevolution, 8,11,12,13);
 
-void setp(int steps)
+void step(int steps)
 {
     digitalWrite(9, HIGH);
     digitalWrite(10, HIGH);
@@ -55,7 +55,7 @@ void loop() {
 
     // step one revolution in the other direction:
     Serial.println("counterclockwise");
-    setp(-stepsPerRevolution);
+    step(-stepsPerRevolution);
     delay(500);
 }
 

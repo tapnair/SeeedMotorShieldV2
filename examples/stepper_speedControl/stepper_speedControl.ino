@@ -32,7 +32,7 @@ Stepper myStepper(stepsPerRevolution, 8, 11, 12, 13);
 int stepCount = 0;  // number of steps the motor has taken
 
 
-void setp(int steps)
+void step(int steps)
 {
     digitalWrite(9, HIGH);
     digitalWrite(10, HIGH);
@@ -54,7 +54,7 @@ void loop() {
     if (motorSpeed > 0) {
         myStepper.setSpeed(motorSpeed);
         // step 1/100 of a revolution:
-        setp(stepsPerRevolution/100);
+        step(stepsPerRevolution/100);
     }
 }
 
